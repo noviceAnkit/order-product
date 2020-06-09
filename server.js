@@ -1,5 +1,13 @@
 const http = require('http');
 const app = require('./app');
+const mongoose = require('mongoose');
+mongoose.connect( 'mongodb://localhost:27017/gqlData' , {useNewUrlParser : true ,useUnifiedTopology: true ,
+    useCreateIndex: true,
+    useFindAndModify: false
+   } ).then(con=>{
+      console.log('Databse connected successfully');
+      
+  }).catch ( err => console.log(err));
 
 const port = process.env.PORT || 3000;
 //const hostname = '127.0.0.1';
